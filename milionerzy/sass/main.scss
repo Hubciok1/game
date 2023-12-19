@@ -1,0 +1,235 @@
+@use 'colors' as *;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+
+body {
+	background-color: rgb(26, 26, 26);
+	height: 100vh;
+	font-family: 'Cinzel', serif;
+	overflow: hidden;
+}
+.line {
+	border: 2px solid black;
+}
+.hide {
+	display: none;
+}
+.highlight{
+	color: gold;
+	border-bottom: 2px solid gold;
+}
+
+.box {
+	position: absolute;
+	top: 40vh;
+	left: 25vw;
+	transform: translate(-25%, -30%);
+
+	.quiz {
+		position: relative;
+		width: 35vw;
+
+		.question {
+			margin-bottom: 1em;
+			padding: 1em 1em;
+			font-size: 1.9rem;
+			text-align: center;
+			border: 3px solid gold;
+			border-radius: 0.5em;
+			color: rgb(255, 255, 255);
+			background-color: $neutral;
+		}
+	}
+}
+//BUTONS//////////////////////////
+.btn {
+	position: relative;
+	padding: 0;
+	margin: 1em;
+	font-size: 1.7rem;
+	border-radius: 8px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: white;
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	transition: box-shadow 0.5s, background-color 0.5s;
+	cursor: pointer;
+	.span {
+		position: absolute;
+		left: 0;
+		top: 30%;
+	}
+}
+
+.hover {
+	&:hover {
+		box-shadow: 0 0 25px 5px gold;
+		background-color: rgb(51, 50, 50);
+		border-color: gold;
+		color: white;
+		.span {
+			color: gold;
+		}
+	}
+
+}
+.hover:hover::after,
+.hover:hover::before {
+	background-color: rgb(51, 50, 50);
+	border-color: gold;
+}
+.text {
+	padding: 1em 6em;
+	width: 100%;
+}
+
+.good.btn {
+	box-shadow: 0 0 25px 5px $good;
+	background-color: rgb(51, 50, 50);
+	border-color: $good;
+	color: $good;
+	.span {
+		color: $good;
+	}
+}
+.good.btn::after,
+.good.btn::before {
+	background-color: rgb(51, 50, 50);
+	border-color: $good;
+}
+.wrong.btn {
+	box-shadow: 0 0 25px 5px $wrong;
+	background-color: rgb(51, 50, 50);
+	border-color: $wrong;
+	color: $wrong;
+	.span {
+		color: $wrong;
+	}
+}
+.wrong.btn::after,
+.wrong.btn::before {
+	background-color: rgb(51, 50, 50);
+	border-color: $wrong;
+}
+
+.start-btn{
+	margin: 6em;
+}
+.start-btn,
+.next-btn,.restart-btn {
+	font-size: 2.2rem;
+	padding: 1em 4em;
+
+}
+
+.btn::before,
+.btn::after {
+	position: absolute;
+	content: '';
+	top: 0.43em;
+	width: 2.3em;
+	height: 2.2em;
+	background-color: rgb(255, 255, 255);
+	transform: rotate(50deg);
+	transition: background-color 0.5s;
+}
+
+.btn::after {
+	right: -1.12em;
+	border-top: 2px solid black;
+	border-right: 2px solid black;
+	transform: rotate(45deg);
+}
+.btn::before {
+	left: -1.12em;
+	border-bottom: 2px solid black;
+	border-left: 2px solid black;
+	transform: rotate(48deg);
+}
+
+.btn-grid {
+	display: grid;
+	grid-template-columns: repeat(2, auto);
+	grid-template-rows: repeat(2, auto);
+	column-gap: 10em;
+	justify-content: center;
+}
+//////////////////////////////////////////
+
+.box2 {
+	display: flex;
+	align-items: end;
+	flex-direction: column;
+
+	.helpBtns {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		width: 20vw;
+		height: 20vh;
+		background-color: $neutral;
+		border-left: 1px solid gold;
+		border-bottom: 3px solid black;
+
+		button {
+			padding: 1em 1.5em;
+			margin: 1em;
+			font-size: 1.5rem;
+			border-radius: 50%;
+			background-color: $help-btn;
+			color: white;
+			border: 2px solid black;
+			transition: box-shadow 0.3s, border 0.3s;
+			cursor: pointer;
+
+			&:hover {
+				box-shadow: inset 5px 5px 5px 2px black;
+				border: 2px solid rgb(105, 101, 101);
+			}
+		}
+	}
+
+	.prize-list {
+		position: relative;
+		width: 20vw;
+		height: 80vh;
+		background-color: $neutral;
+		border-left: 1px solid gold;
+	}
+	ul {
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		list-style: none;
+		color: white;
+		margin: 0 0.5em 1em;
+		text-align: right;
+	}
+	li {
+		left: 0;
+		right: 0;
+		list-style: none;
+		color: white;
+		margin: 0.5em 0 0;
+		margin-right: 0.1em;
+		font-size: 3.3rem;
+		font-weight: bold;
+		border-bottom: 1px solid black;
+		.span2 {
+			position: absolute;
+			left: 0;
+			color: gold;
+		}
+	}
+}
